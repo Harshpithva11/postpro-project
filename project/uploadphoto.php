@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-// Database connection
-$conn = new mysqli("localhost", "root", "", "social");
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+require_once __DIR__ . '/db.php';
 
 // --- Function to fetch hashtags ---
 function fetch_hashtags($conn, $mood, $limit = 5)

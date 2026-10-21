@@ -3,17 +3,7 @@ session_start(); // <-- Add session start to check login status
 
 // song.php
 
-// Database credentials
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "social";
-
-// Connect to DB
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once __DIR__ . '/db.php';
 
 // Handle AJAX request for songs by mood with pagination & random selection
 if (isset($_GET['action']) && $_GET['action'] === 'get_songs' && isset($_GET['mood'])) {

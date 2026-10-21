@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,6 @@
       <form action="login_process.php" method="POST">
         <!-- Error message -->
         <?php
-        session_start();
         if (isset($_SESSION['message'])) {
           echo '<div class="error-message">' . $_SESSION['message'] . '</div>';
           unset($_SESSION['message']);

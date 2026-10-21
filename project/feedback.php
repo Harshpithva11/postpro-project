@@ -1,21 +1,5 @@
 <?php
-// Database credentials
-$host = "localhost";
-$dbname = "social";
-$username = "root";
-$password = "";
-
-$submitted = false;
-$rating = $emoji = $comments = $email = "";
-$errors = [];
-
-try {
-    // Create PDO connection
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (Exception $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
+require_once __DIR__ . '/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);

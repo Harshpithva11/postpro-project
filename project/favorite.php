@@ -1,11 +1,7 @@
 <?php
 session_start();
 
-// ✅ 1. DB Connection
-$conn = new mysqli("localhost", "root", "", "social");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once __DIR__ . '/db.php';
 
 // ✅ 2. Check login and alert without redirect
 if (!isset($_SESSION['user_id'])) {

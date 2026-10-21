@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,6 @@
         <h1>Reset Password</h1>
         <form action="reset_process.php" method="POST">
             <?php
-            session_start();
             if (isset($_SESSION['message'])) {
                 echo '<div class="message success">' . $_SESSION['message'] . '</div>';
                 unset($_SESSION['message']);
