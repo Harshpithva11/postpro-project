@@ -72,17 +72,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!isset($_FILES['photo']) || $_FILES['photo']['error'] !== 0) {
         $errorMsg = "Upload photo";
     } else {
-        $dir = "uploads/";
-        if (!is_dir($dir)) mkdir($dir, 0777, true);
-        $fileName = time() . "_" . basename($_FILES["photo"]["name"]);
-        $target = $dir . $fileName;
-        $ext = strtolower(pathinfo($target, PATHINFO_EXTENSION));
-        if (!in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])) {
-            $errorMsg = "Invalid file type";
-        } elseif (!move_uploaded_file($_FILES["photo"]["tmp_name"], $target)) {
-            $errorMsg = "Upload error";
+        $ext = strtolower(pathinfo($_FILES["photo"]["name"], PATHINFO_EXTENSION));
+        if (!in_array($ext, ['jpg', 'jpeg', 'png', 'gif', 'webp'])) {
+            $errorMsg = "Invalid file type (jpg, jpeg, png, gif, webp allowed)";
         } else {
-            $uploadedPhotoPath = $target;
+            $saved = false;
+            $dir = __DIR__ . "/uploads/";
+
+            // 1. Try local storage (works in local XAMPP environment)
+            if (@is_dir($dir) || @mkdir($dir, 0777, true)) {
+                $cleanName = preg_replace('/[^a-zA-Z0-9._-]/', '', basename($_FILES["photo"]["name"]));
+                $fileName = time() . "_" . $cleanName;
+                $target = $dir . $fileName;
+                if (@move_uploaded_file($_FILES["photo"]["tmp_name"], $target)) {
+                    $uploadedPhotoPath = "uploads/" . $fileName;
+                    $saved = true;
+                }
+            }
+
+            // 2. Cloud Serverless Fallback (Vercel read-only filesystem)
+            // Encodes uploaded image as a Base64 data URL so it displays immediately without write errors
+            if (!$saved && !empty($_FILES["photo"]["tmp_name"])) {
+                $fileData = @file_get_contents($_FILES["photo"]["tmp_name"]);
+                if ($fileData !== false) {
+                    $mime = ($ext === 'jpg' || $ext === 'jpeg') ? 'image/jpeg' : (($ext === 'png') ? 'image/png' : 'image/' . $ext);
+                    $uploadedPhotoPath = 'data:' . $mime . ';base64,' . base64_encode($fileData);
+                    $saved = true;
+                }
+            }
+
+            if (!$saved) {
+                $errorMsg = "Upload error: Could not process photo.";
+            }
         }
     }
 
