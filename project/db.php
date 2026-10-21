@@ -1,6 +1,9 @@
 <?php
 // Centralized Database Connection for Local & Cloud (Vercel)
 
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
+ini_set('display_errors', '0');
+
 $host = getenv('DB_HOST') ?: "gateway01.ap-northeast-1.prod.aws.tidbcloud.com";
 $user = getenv('DB_USER') ?: "41YGiq3gNmStVD6.root";
 $pass = getenv('DB_PASS') !== false ? getenv('DB_PASS') : "2wklpg3iqU0Fdbl9";
@@ -20,24 +23,34 @@ if ($conn) {
     if (file_exists($caCert)) {
         mysqli_ssl_set($conn, NULL, NULL, $caCert, NULL, NULL);
     }
-    mysqli_options($conn, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
+    if (defined('MYSQLI_OPT_SSL_VERIFY_SERVER_CERT')) {
+        mysqli_options($conn, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
+    }
     if (!@mysqli_real_connect($conn, $host, $user, $pass, $dbname, $port, NULL, MYSQLI_CLIENT_SSL)) {
         // Fallback procedural connect if local without SSL
         $conn = @mysqli_connect($host, $user, $pass, $dbname, $port);
     }
 }
 
-// 2. Initialize PDO with SSL
+// 2. Initialize PDO with SSL (PHP 8.5+ compatible)
+$sslVerifyKey = defined('Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT') 
+    ? constant('Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT') 
+    : (defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT') ? constant('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT') : 1014);
+
+$sslCaKey = defined('Pdo\Mysql::ATTR_SSL_CA') 
+    ? constant('Pdo\Mysql::ATTR_SSL_CA') 
+    : (defined('PDO::MYSQL_ATTR_SSL_CA') ? constant('PDO::MYSQL_ATTR_SSL_CA') : 1012);
+
 $pdo = null;
 try {
     $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
     $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+        $sslVerifyKey => false,
     ];
     if (file_exists($caCert)) {
-        $options[PDO::MYSQL_ATTR_SSL_CA] = $caCert;
+        $options[$sslCaKey] = $caCert;
     }
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (Exception $e) {
