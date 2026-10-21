@@ -211,3 +211,46 @@ a:hover::before{
         transform: translateY(0); /* Slide into position */
     }
 }
+
+/* ====================================================
+   Mobile & Responsive Enhancements
+   ==================================================== */
+@media (max-width: 768px) {
+  body, html {
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+
+  .background {
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 20px 10px !important;
+    flex-direction: column !important;
+  }
+
+  .top-links {
+    position: static !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    margin-bottom: 25px !important;
+    right: auto !important;
+  }
+
+  .top-links a {
+    margin: 0 !important;
+    font-size: 1.1rem !important;
+  }
+
+  .login-container {
+    width: 92% !important;
+    max-width: 380px !important;
+    padding: 25px 18px !important;
+    margin: 0 auto !important;
+  }
+
+  .login-container h1, .login-container h2 {
+    font-size: 1.6rem !important;
+  }
+}

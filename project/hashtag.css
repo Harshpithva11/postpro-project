@@ -215,3 +215,66 @@ button:hover {
   0%, 40%, 100% { transform: scaleY(0.3); }
   20% { transform: scaleY(1); }
 }
+
+/* ====================================================
+   Mobile & Responsive Enhancements
+   ==================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    width: 95% !important;
+    max-width: 95% !important;
+    gap: 8px !important;
+    padding: 8px 10px !important;
+    flex-wrap: wrap !important;
+    border-radius: 20px !important;
+    margin: 10px auto !important;
+    top: 5px !important;
+  }
+
+  .navbar a {
+    font-size: 13px !important;
+    padding: 6px 10px !important;
+    border-radius: 15px !important;
+  }
+
+  .container, .form-container, .main-container {
+    width: 94% !important;
+    max-width: 100% !important;
+    padding: 20px 14px !important;
+    margin: 15px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .mood-box {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .mood-box .ts-wrapper, .mood-box select, .mood-box button {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .caption-box, .hashtag-box, .song-card {
+    padding: 14px 12px !important;
+    font-size: 15px !important;
+    box-sizing: border-box !important;
+  }
+
+  .buttons {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .copy-btn, .fav-btn, .shuffle-btn {
+    font-size: 13px !important;
+    padding: 6px 12px !important;
+  }
+
+  .posted-image-container img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}

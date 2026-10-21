@@ -10,6 +10,7 @@ if (!isset($_SESSION['is_admin'])) {
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <title>Admin Dashboard - POSTPRO</title>
     <style>
@@ -93,7 +94,22 @@ if (!isset($_SESSION['is_admin'])) {
             text-decoration:underline;
             
         }
-        
+        @media (max-width: 600px) {
+            body {
+                height: auto !important;
+                min-height: 100vh !important;
+                padding: 20px 10px !important;
+            }
+            .dashboard-container {
+                padding: 24px 16px !important;
+                width: 95% !important;
+            }
+            .admin-button {
+                min-width: 100% !important;
+                font-size: 15px !important;
+                padding: 14px 18px !important;
+            }
+        }
     </style>
 </head>
 

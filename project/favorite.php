@@ -107,6 +107,7 @@ function showFavorites($conn, $user_id, $type, $title, $icon, $activeTab) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8">
   <title>My Favorites</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -221,6 +222,31 @@ function showFavorites($conn, $user_id, $type, $title, $icon, $activeTab) {
       font-style: italic;
       color: #999;
       padding: 10px;
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        width: 95% !important;
+        gap: 8px !important;
+        padding: 8px 10px !important;
+        flex-wrap: wrap !important;
+        border-radius: 20px !important;
+      }
+      .navbar a {
+        font-size: 13px !important;
+        padding: 6px 10px !important;
+      }
+      .fav-box {
+        width: 94% !important;
+        padding: 18px 12px !important;
+        margin: 15px auto !important;
+      }
+      .fav-tabs {
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+      }
+      .fav-grid {
+        grid-template-columns: 1fr !important;
+      }
     }
   </style>
 </head>

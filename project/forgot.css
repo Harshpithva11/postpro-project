@@ -109,3 +109,32 @@ body {
 .form-container a:hover {
     text-decoration: underline; /* Underline on hover */
 }
+
+/* ====================================================
+   Mobile & Responsive Enhancements
+   ==================================================== */
+@media (max-width: 768px) {
+  .container {
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 20px 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .register-box, .box, .login-container {
+    width: 92% !important;
+    max-width: 380px !important;
+    padding: 25px 18px !important;
+    margin: 20px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .top-links {
+    position: static !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    margin-bottom: 20px !important;
+  }
+}

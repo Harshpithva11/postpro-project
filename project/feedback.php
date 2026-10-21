@@ -48,6 +48,7 @@ $all_feedbacks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8">
     <title>AI Project Feedback</title>
     <style>
@@ -231,6 +232,26 @@ $all_feedbacks = $stmt->fetchAll(PDO::FETCH_ASSOC);
             white-space: pre-wrap;
             font-style: italic;
             color: #444;
+        }
+        @media (max-width: 768px) {
+          body {
+            padding: 15px 10px !important;
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          .top-links {
+            position: static !important;
+            margin-bottom: 15px !important;
+            gap: 20px !important;
+            padding-top: 5px !important;
+          }
+          .container, .feedback-list {
+            width: 95% !important;
+            max-width: 100% !important;
+            margin-top: 15px !important;
+            padding: 20px 15px !important;
+            box-sizing: border-box !important;
+          }
         }
     </style>
 </head>

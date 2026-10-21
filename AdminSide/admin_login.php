@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Login - POSTPRO</title>
     <style>
         * {
@@ -92,6 +93,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 13px;
             color: #aaa;
             margin-top: 30px;
+        }
+        @media (max-width: 600px) {
+            body {
+                height: auto !important;
+                min-height: 100vh !important;
+                padding: 20px 10px !important;
+            }
+            .login-container {
+                padding: 30px 18px !important;
+                width: 95% !important;
+            }
         }
     </style>
 </head>

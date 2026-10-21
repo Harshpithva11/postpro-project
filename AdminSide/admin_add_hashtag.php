@@ -37,6 +37,7 @@ $conn->close();
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Hashtag</title>
     <style>
         body {
@@ -105,7 +106,14 @@ $conn->close();
             text-decoration:underline;
            
         }
-    </style>
+    
+@media (max-width: 768px) {
+    body { margin: 10px !important; height: auto !important; min-height: 100vh !important; }
+    .form-box { width: 95% !important; padding: 20px 14px !important; box-sizing: border-box !important; }
+    table { width: 100% !important; display: block !important; overflow-x: auto !important; }
+    th, td { padding: 8px 10px !important; font-size: 13px !important; }
+}
+</style>
 </head>
 <body>
      <a href="admin_dashboard.php" class="back-link">⬅️Back to Dashboard</a>
