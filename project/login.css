@@ -1,0 +1,213 @@
+/* https://images.unsplash.com/photo-1507525428034-b723cf961d3e */
+/* Set full page background with image and remove default spacing */
+body, html {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100%; /* Full height for body and html */
+    font-family: 'Segoe UI', sans-serif; /* Set clean modern font */
+    background: url('photo.jpg') no-repeat center center/cover; /* Set background image centered and cover entire screen */
+    /* Optional: fallback image URL shown in comment */
+}
+
+/* Center the content vertically and horizontally using flexbox */
+.background {
+    height: 100%; /* Occupy full height of viewport */
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.top-links{
+  position: absolute; 
+  top: 25px;
+  right: 130px;
+}
+
+.top-links a {
+  margin-left: 23px;
+  color: white;
+  font-weight:750;
+  font-size: 1.3rem;
+}
+
+a {
+  background-image: linear-gradient(
+    to right,
+    #54b3d6,
+    #54b3d6 50%,
+    #ffffff 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+  text-decoration: underline;
+}
+
+a:before{
+  content: '';
+  background: #54b3d6;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+  text-decoration: underline;
+}
+
+a:hover {
+ background-position: 0;
+}
+
+a:hover::before{
+  width: 100%;
+}
+
+/* Main container with glassmorphism effect */
+.login-container {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background for glass effect */
+    border-radius: 16px; /* Rounded corners */
+    padding: 30px; /* Inner spacing */
+    width: 350px; /* Fixed width for the form box */
+    backdrop-filter: blur(12px); /* Apply blur to background behind container */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+    color: white; /* White text for better contrast */
+    text-align: center; /* Center text inside container */
+}
+
+/* Styling the heading text inside the container */
+.login-container h2 {
+    margin-bottom: 25px; /* Space below the heading */
+}
+
+/* Group for input and icon (positioning them together) */
+.input-group {
+    position: relative; /* Allows absolutely positioning child elements */
+    margin-bottom: 20px; /* Space between input fields */
+}
+
+/* Set placeholder text color to white */
+.input-field::placeholder {
+    color: white; /* White placeholder text */
+    opacity: 1; /* Ensure it's fully visible */
+}
+
+/* Style for input fields (username, password, etc.) */
+.input-field {
+    width: 100%; /* Full width */
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box; /* Include padding in width */
+    padding: 15px 40px 12px 14px; /* Add space for icon on right */
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded pill shape */
+    font-size: 14px; /* Set font size */
+    background: rgba(0, 0, 0, 0.05); /* Light transparent background */
+    color: white; /* White text */
+    outline: none; /* Remove default outline */
+}
+
+/* Style for icons or buttons inside input fields */
+/* Style user icon */
+.input-group .icon {
+    position: absolute; /* Position relative to input field */
+    right: 16px; /* Fixed distance from the right */
+    top: 50%; /* Align vertically to middle */
+    transform: translateY(-50%); /* Adjust for perfect centering */
+    color: white; /* White color icon */
+    font-size: 16px; /* Icon size */
+    pointer-events: none; /* Let clicks go through the icon */
+}
+
+/* Style toggle eye button */
+.input-group .toggle-btn {
+    position: absolute; /* Position relative to input field */
+    right: 8px; /* Shift left from the user icon position */
+    top: 50%; /* Align vertically to middle */
+    transform: translateY(-50%); /* Adjust for perfect centering */
+    background: none; /* Transparent background */
+    border: none; /* No border */
+    color: white; /* White icon color */
+    font-size: 16px; /* Icon size */
+    cursor: pointer; /* Show pointer on hover */
+}
+
+/* "Remember Me" and "Forgot Password" links container */
+.options {
+    display: flex; /* Arrange items in a row */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Vertically align items */
+    font-size: 13px; /* Small font size */
+    margin-bottom: 20px; /* Space below options */
+}
+
+/* Style for links in the options section */
+.options a {
+    color: #e0e0ff; /* Light blue color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Hover effect for links */
+.options a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Style for login button */
+.login-btn {
+    width: 100%; /* Full width button */
+    padding: 12px; /* Button padding */
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded pill shape */
+    background: white; /* White background */
+    color: black; /* Black text */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Hover effect for login button */
+.login-btn:hover {
+    background: #00b5d9; /* Slightly darker background on hover */
+}
+
+/* Register link text styling */
+.register-text {
+    margin-top: 15px; /* Space above */
+    font-size: 14px; /* Font size */
+}
+
+/* Style for register link */
+.register-text a {
+    color: #ffffff; /* White text color */
+    text-decoration: underline; /* Underlined link */
+}
+
+/* Error message box styling */
+.error-message {
+    background: rgba(0, 136, 255, 0.15); /* Light blue transparent background */
+    border: 1px solid rgba(255, 0, 77, 0.4); /* Semi-red border */
+    color: #ff004d; /* Red text color */
+    font-weight: 600; /* Bold text */
+    font-size: 17px; /* Font size */
+    text-align: center; /* Centered text */
+    padding: 12px 20px; /* Padding */
+    border-radius: 12px; /* Rounded corners */
+    backdrop-filter: blur(8px); /* Blur effect */
+    box-shadow: 0 8px 24px rgba(3, 58, 239, 0.2); /* Blue-ish shadow */
+    animation: slideFadeGlow 0.8s ease-out forwards; /* Apply animation */
+    opacity: 0; /* Start invisible */
+    transform: translateY(-20px); /* Slide from above */
+    margin-bottom: 20px; /* Space below */
+}
+
+/* Animation for error box appearance */
+@keyframes slideFadeGlow {
+    100% {
+        opacity: 1; /* Become fully visible */
+        transform: translateY(0); /* Slide into position */
+    }
+}

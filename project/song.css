@@ -1,0 +1,270 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #8ec5fc, #a1c4fd, #fbc2eb);
+  background-size: 600% 600%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌟 Glassmorphism Navbar 
+.navbar {
+  background: rgba(54, 85, 220, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  margin: 15px auto;
+  padding: 12px 30px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.navbar a {
+  position: relative;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: #ff00d4ea;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+*/
+
+/* Fancy Top Navigation Bar */
+.navbar {
+  margin: 20px auto;
+  padding: 12px 25px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background: linear-gradient(90deg, #7f7fd5, #86a8e7, #91eae4);
+  border-radius: 40px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: fit-content;
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 8px 15px;
+  border-radius: 25px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar a:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.navbar .active {
+  background: rgba(255,255,255,0.35);
+  color: #222;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  max-width: 850px;
+  width: 90%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+/* ✅ Dropdown + Button wrapper */
+.mood-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+select, button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: #7b2ff7;
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #5a0fcf;
+}
+
+/* ✅ Tom Select */
+.ts-control {
+  border-radius: 10px !important;
+  border: 1px solid #ccc !important;
+  padding: 10px 12px !important;
+  font-size: 16px !important;
+  font-weight: bold;
+  min-width: 220px;
+  background: #fff !important;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.ts-dropdown {
+  border-radius: 10px !important;
+  border: 1px solid #ccc !important;
+  background: #fff !important;
+  font-size: 16px !important;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.ts-dropdown .option {
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.ts-dropdown .option:hover,
+.ts-dropdown .option.active {
+  background: #7b2ff7 !important;
+  color: white !important;
+}
+
+/* 🌟 Song Box */
+.song-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px) saturate(180%);
+  margin: 12px 0;
+  padding: 12px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.song-box:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.song-text {
+  font-size: 18px;
+  text-align: left;
+  color: #222;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.play-btn {
+  padding: 8px 14px;
+  background: #e53cb5ff;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.play-btn:hover {
+  background: #ca35a0ff;
+  transform: scale(1.05);
+}
+
+.copy-btn {
+  padding: 8px 14px;
+  background: #2375c8ca;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.copy-btn:hover {
+  background: #1d68b4e2;
+  transform: scale(1.05);
+}
+
+.fav-btn {
+  padding: 8px 14px;
+  background: #ff4d6d;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.fav-btn:hover {
+  background: #e63950;
+  transform: scale(1.05);
+}
+
+.fav-btn span {
+  margin-left: 6px;
+}
+
+/* 🔥 Loader */
+.loader {
+  display: none;
+  justify-content: center;
+  margin: 25px 0;
+}
+.wave {
+  width: 6px;
+  height: 30px;
+  background: #7b2ff7;
+  margin: 0 4px;
+  border-radius: 5px;
+  animation: wave 1.2s infinite ease-in-out;
+}
+.wave:nth-child(2) { animation-delay: -1.1s; }
+.wave:nth-child(3) { animation-delay: -1.0s; }
+.wave:nth-child(4) { animation-delay: -0.9s; }
+.wave:nth-child(5) { animation-delay: -0.8s; }
+
+@keyframes wave {
+  0%, 40%, 100% { transform: scaleY(0.3); }
+  20% { transform: scaleY(1); }
+}

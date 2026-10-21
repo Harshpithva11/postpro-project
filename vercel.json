@@ -1,0 +1,27 @@
+{
+  "functions": {
+    "project/**/*.php": {
+      "runtime": "vercel-php@0.9.0"
+    },
+    "AdminSide/**/*.php": {
+      "runtime": "vercel-php@0.9.0"
+    },
+    "*.php": {
+      "runtime": "vercel-php@0.9.0"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)\\.(css|js|png|jpg|jpeg|gif|svg|ico|webp)$",
+      "dest": "/$1.$2"
+    },
+    {
+      "src": "^/$",
+      "dest": "/index.php"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

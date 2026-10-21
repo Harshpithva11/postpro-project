@@ -1,0 +1,111 @@
+/* Reset default margin and padding, apply font and background image */
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: 'Segoe UI', sans-serif; /* Apply modern font */
+    
+    /* Set full-screen background image (URL shown in comment above) */
+    /* photo link = 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e' */
+    background: url(photo.jpg) no-repeat center center fixed; /* Center the background image and fix it */
+    background-size: cover; /* Scale background image to cover entire area */
+    
+    height: 100vh; /* Make body take full viewport height */
+    display: flex; /* Enable flexbox for centering */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+}
+
+/* Style for the form box container */
+.form-container {
+    width: 360px; /* Fixed width for form */
+    padding: 35px 30px; /* Internal spacing */
+    background: rgba(255, 255, 255, 0.15); /* Semi-transparent white for glassmorphism */
+    border-radius: 20px; /* Rounded corners */
+    backdrop-filter: blur(12px); /* Apply blur effect to background */
+    -webkit-backdrop-filter: blur(12px); /* Safari support for blur */
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2); /* Subtle shadow */
+    color: #fff; /* White text */
+    text-align: center; /* Center text */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: stretch; /* Stretch items to full container width */
+}
+
+/* Style for the heading inside the form */
+.form-container h2 {
+    margin-bottom: 25px; /* Space below heading */
+    font-size: 22px; /* Set heading size */
+    font-weight: bold; /* Make heading bold */
+}
+
+/* Container for input and icon */
+.input-box {
+    position: relative; /* Needed for absolutely positioned icon */
+    margin-bottom: 20px; /* Space below each input */
+}
+
+/* Style for input fields */
+.input-box input {
+    width: 100%; /* Take full width */
+    padding: 12px 1px 12px 3px; /* Add padding: top, right, bottom, left */
+    border: none; /* Remove border */
+    border-radius: 25px; /* Rounded corners */
+    background: rgba(0, 0, 0, 0.05); /* Light transparent background */
+    color: #fff; /* White text */
+    font-size: 15px; /* Font size */
+    outline: none; /* Remove outline on focus */
+}
+
+/* Style for icons inside input */
+.input-box i {
+    position: absolute; /* Position icon relative to parent */
+    right: 15px; /* Distance from right */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Precisely center icon */
+    color: #fff; /* White color icon */
+    font-size: 16px; /* Icon size */
+}
+
+/* Style for the form submit button */
+.form-container button {
+    width: 100%; /* Full width button */
+    padding: 12px; /* Padding for height */
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text */
+    font-weight: 600; /* Bold text */
+    border: none; /* Remove border */
+    border-radius: 55px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s ease; /* Smooth hover effect */
+    font-size: 15px; /* Font size */
+    margin-top: 5px; /* Space above button */
+}
+
+/* Hover effect for submit button */
+.form-container button:hover {
+    background-color: #00b5d9; /* Light blue on hover */
+}
+
+/* Message area for errors or feedback */
+.form-container .message {
+    margin-top: 15px; /* Space above message */
+    font-weight: bold; /* Bold text */
+    color: #fff; /* White text */
+    background: rgba(255, 0, 0, 0.3); /* Red background with transparency */
+    padding: 8px; /* Padding around message */
+    border-radius: 5px; /* Rounded edges */
+}
+
+/* Style for anchor links (e.g., login, back) */
+.form-container a {
+    margin-top: 20px; /* Space above */
+    color: #ddd; /* Light text color */
+    text-decoration: none; /* No underline */
+    font-size: 14px; /* Font size */
+    display: inline-block; /* Allow margin to work properly */
+}
+
+/* Hover effect for links */
+.form-container a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

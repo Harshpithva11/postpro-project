@@ -1,0 +1,303 @@
+/* your original CSS untouched */
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+.navbar {
+  margin: 20px auto;
+  padding: 12px 25px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background: linear-gradient(90deg, #7f7fd5, #86a8e7, #91eae4);
+  border-radius: 40px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: fit-content;
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 8px 15px;
+  border-radius: 25px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar a:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.navbar .active {
+  background: rgba(255,255,255,0.35);
+  color: #222;
+}
+
+body { 
+  font-family: 'Poppins', sans-serif; 
+  background: linear-gradient(135deg, #74b9ff, #a29bfe); 
+  padding: 40px 20px; 
+  color: #2d3436; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  min-height: 100vh; 
+}
+
+h2 { 
+  font-size: 2.2rem; 
+  margin-bottom: 25px; 
+  color: #fff; 
+  text-align: center; 
+}
+
+.form-container {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px; /* spacing between items */
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Set equal fixed width for select, upload-box, and button */
+.form-container select,
+.form-container button,
+.upload-box {
+  flex: 0 0 200px;  /* fixed width */
+  max-width: 200px;
+  min-width: 200px;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: 2px solid #dfe6e9;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Style the button separately */
+.form-container button {
+  background: linear-gradient(135deg, #6c5ce7, #00cec9);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  margin-bottom: 1px; /* Adjust value as needed */
+}
+
+.form-container button:hover {
+  opacity: 0.85;
+}
+
+/* Upload box specifics */
+.upload-box {
+  flex: 0 0 280px;    /* narrower */
+  max-width: 280px;
+  padding: 10px 12px; /* slightly smaller padding */
+  font-size: 0.95rem; /* smaller font inside upload box */
+  height: 60px;       /* reduce height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-box input { 
+  display: none; 
+}
+
+.preview-card { 
+  margin-top: 20px; 
+  background: #fff; 
+  border-radius: 16px; 
+  padding: 20px; 
+  width: 100%; 
+  max-width: 500px; 
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1); 
+  text-align: center; 
+}
+
+.preview-card img {
+  max-width: 100%;
+  max-height: 250px;  /* Limit the max height for preview */
+  border-radius: 12px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* New styling for posted image - smaller to fit the screen */
+.posted-image-container {
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  width: 100%;
+  max-width: 400px; /* smaller max-width */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.posted-image-container img {
+  max-width: 100%;
+  max-height: 300px; /* limit height to keep image small */
+  border-radius: 12px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.card { 
+  margin-top: 30px; 
+  background: #fff; 
+  border-radius: 16px; 
+  padding: 25px; 
+  width: 100%; 
+  max-width: 1700px; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+}
+
+#resultBoxes { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 25px; 
+  margin-top: 20px; 
+  width: 100%; 
+}
+
+.suggestion-box {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.suggestion-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+}
+
+.box-header {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #2d3436;
+  margin-bottom: 10px;
+}
+
+.box-content {
+  flex-grow: 1;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-align: center;
+  color: #2d3436;
+  word-break: break-word;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 10px;
+}
+
+.box-footer {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.shuffle-btn, .copy-btn, .fav-btn { 
+  flex: 1; 
+  background: linear-gradient(135deg, #6c5ce7, #00cec9); 
+  border: none; 
+  padding: 12px 16px; 
+  border-radius: 10px; 
+  color: #fff; 
+  cursor: pointer; 
+  font-size: 0.95rem; 
+  font-weight: 600; 
+  transition: 0.3s; 
+  width: 80%;
+  
+}
+
+.shuffle-btn:hover, 
+.copy-btn:hover, 
+.fav-btn:hover { 
+  background: linear-gradient(135deg, #00cec9, #6c5ce7); 
+  transform: scale(1.05); 
+}
+
+/* Loader */
+#loader { 
+  display: none; 
+  margin-top: 30px; 
+  font-size: 1.3rem; 
+  font-weight: bold; 
+  color: #fff; 
+  animation: blink 1s infinite; 
+}
+
+@keyframes blink { 
+  50% { 
+    opacity: 0.5; 
+  } 
+}
+
+@media (max-width: 950px) { 
+  #resultBoxes { 
+    grid-template-columns: 1fr; 
+  } 
+  .suggestion-box { 
+    height: auto; 
+  } 
+}
+
+/* New professional error message style */
+.error-message {
+  color: #d9534f; /* Bootstrap red */
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 8px 0 12px 0;
+  width: 100%;
+  max-width: 360px; /* same as upload box */
+  padding: 10px 15px;
+  background-color: #f8d7da; /* light red background */
+  border: 1.5px solid #f5c6cb; /* light red border */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 5px rgba(217, 83, 79, 0.3);
+}
+
+/* Warning icon before error message */
+.error-message::before {
+  content: "⚠️";  /* warning emoji */
+  font-size: 1.1rem;
+  display: inline-block;
+}
+
+/* Fixing text color and contrast for "Your Mood Post" */
+h2 {
+  color: #2d3436; /* Dark color for better visibility */
+  font-weight: bold;
+}
